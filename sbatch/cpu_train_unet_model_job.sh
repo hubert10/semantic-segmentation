@@ -11,7 +11,6 @@
 # partition must be set to "gpu". This example script requests access
 # to a single GPU, 16 CPUs, and 30 GB of RAM for a single PyTorch task.
 #SBATCH --nodes=1  # Run all processes on 4 nodes
-#SBATCH --partition=cpu
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16 # Number of CPU cores per task
 #SBATCH --mem=128gb        # Total memory limit
