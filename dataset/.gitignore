@@ -2,7 +2,7 @@
 # Skip these folders
 dataset/
 logs/
-results/
+images/
 QGIS/
 stevennotebooks/
 temp/
@@ -12,8 +12,6 @@ val/
 samples/*
 # Skip these files
 *.h5
-# samples/*.tif
-# samples/split_images/*.tif
 images/
 Output/*.jpg
 Output/*.csv

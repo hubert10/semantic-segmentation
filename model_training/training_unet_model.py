@@ -52,7 +52,7 @@ time = now.strftime("%m%d%Y_%H%M")
 
 scaler = MinMaxScaler()
 
-root_directory = '../dataset/'
+root_directory = 'dataset/'
 
 patch_size = 256
 
@@ -129,7 +129,6 @@ for path, subdirs, files in os.walk(root_directory):
  
 image_dataset = np.array(image_dataset)
 mask_dataset =  np.array(mask_dataset)
-print(image_dataset)
 
 # #Sanity check, view few mages
 # import random
@@ -165,7 +164,6 @@ Calculating RGB from HEX: #3C1098
 #Convert HEX to RGB array
 # Try the following to understand how python handles hex values...
 a=int('3C', 16)  #3C with base 16. Should return 60. 
-print(a)
 #Do the same for all RGB channels in each hex code to convert to RGB
 Building = '#3C1098'.lstrip('#')
 Building = np.array(tuple(int(Building[i:i+2], 16) for i in (0, 2, 4))) # 60, 16, 152
