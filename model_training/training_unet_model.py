@@ -38,8 +38,13 @@ from datetime import datetime
 import segmentation_models as sm
 from tensorflow.keras.metrics import MeanIoU
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
-from utils.make_dir import create_dir
-from utils.config import PROJECT_ROOT
+
+
+# Root directory of the project
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = BASE_DIR + "/"
+print(PROJECT_ROOT)
+
 
 now = datetime.now()  # current date and time
 time = now.strftime("%m%d%Y_%H%M")

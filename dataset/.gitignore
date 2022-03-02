@@ -14,7 +14,7 @@ samples/*
 *.h5
 # samples/*.tif
 # samples/split_images/*.tif
-image/
+images/
 Output/*.jpg
 Output/*.csv
 # JPEG
