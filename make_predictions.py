@@ -5,7 +5,7 @@ Prediction using smooth tiling as descibed here...
 https://github.com/Vooban/Smoothly-Blend-Image-Patches
 
 """
-
+import os
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
@@ -17,8 +17,12 @@ from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 
 from smooth_tiled_predictions import predict_img_with_smooth_windowing
-
 from keras import backend as K
+
+# Root directory of the project
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = BASE_DIR + "/"
+print(PROJECT_ROOT)
 
 def jacard_coef(y_true, y_pred):
     y_true_f = K.flatten(y_true)
@@ -26,7 +30,7 @@ def jacard_coef(y_true, y_pred):
     intersection = K.sum(y_true_f * y_pred_f)
     return (intersection + 1.0) / (K.sum(y_true_f) + K.sum(y_pred_f) - intersection + 1.0)
 
-input_path = "/home/hubert/Desktop/Heuristics/python_for_microscopists/dataset/Tile 8/"
+input_path = PROJECT_ROOT+ "dataset/Tile 8/"
 
 img = cv2.imread(input_path+"images/image_part_008.jpg", 1)
 original_mask = cv2.imread(input_path+"masks/image_part_008.png", 1)
@@ -40,7 +44,7 @@ original_mask = cv2.cvtColor(original_mask,cv2.COLOR_BGR2RGB)
 
 from keras.models import load_model
 
-model = load_model("models/satellite_standard_unet_100epochs.hdf5", compile=False)
+model = load_model("models/satellite_standard_unet_100epochs_03022022_2003.hdf5", compile=False)
                   
 # size of patches
 patch_size = 256
