@@ -13,10 +13,10 @@
 #SBATCH --nodes=1  # Run all processes on 4 nodes
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16 # Number of CPU cores per task
-#SBATCH --mem=128gb        # Total memory limit
+#SBATCH --mem=1000gb        # Total memory limit
 
 # Specifies how long the job will be allowed to run in HH:MM:SS.
-#SBATCH --time=03:00:00
+#SBATCH --time=8:00:00
 
 # The log file for all job output. Note the special string "%j", which
 # represents the job number.
@@ -32,5 +32,3 @@ module load tensorflow/2.4.1
 python model_training/training_unet_model.py
 
 date
-
-sbatch --account=hoogenboom --qos=hoogenboom cpu_job_predictions_debi_tiguet.sh
